@@ -23,7 +23,7 @@ import br.com.blueapp.agenda.entitys.dtos.AgendaEntityDTO;
 import br.com.blueapp.agenda.services.AgendaService;
 import br.com.blueapp.agenda.services.excepcion.EmailCadastradoExcepcion;
 import br.com.blueapp.agenda.services.excepcion.PessoaNotExistsExcepcion;
-import io.swagger.annotations.ApiOperation;
+//import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/api/agenda")
@@ -32,7 +32,7 @@ public class AgendaController {
 	@Autowired
 	private AgendaService servico;
 
-	@ApiOperation(value = "Persistir no banco de dados")
+	//@ApiOperation(value = "Persistir no banco de dados")
 	@PostMapping
 	public ResponseEntity<AgendaEntityDTO> salvar(@RequestBody AgendaEntityDTO dto) {
 
@@ -82,7 +82,7 @@ public class AgendaController {
 
 	}
 
-	@ApiOperation(value = "Retornar todos do banco de dados")
+	//@ApiOperation(value = "Retornar todos do banco de dados")
 	@GetMapping
 	public ResponseEntity<List<AgendaEntityDTO>> index() {
 
@@ -97,7 +97,7 @@ public class AgendaController {
 		return ResponseEntity.status(HttpStatus.OK).body(agendaDTO);
 	}
 
-	@ApiOperation(value = "Retornar por ID")
+	//@ApiOperation(value = "Retornar por ID")
 	@GetMapping("/{id}")
 	public ResponseEntity<AgendaEntityDTO> show(@PathVariable Long id) {
 
@@ -115,7 +115,7 @@ public class AgendaController {
 
 	}
 
-	@ApiOperation(value = "Atualizar cadastro")
+	//@ApiOperation(value = "Atualizar cadastro")
 	@PutMapping("/{id}")
 	public ResponseEntity<AgendaEntityDTO> update(@PathVariable Long id, @RequestBody AgendaEntityDTO dto) {
 
@@ -149,7 +149,7 @@ public class AgendaController {
 
 	}
 
-	@ApiOperation(value = "Deletar Cadastro")
+	//@ApiOperation(value = "Deletar Cadastro")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<AgendaEntityDTO> delete(@PathVariable Long id) {
 

@@ -12,6 +12,8 @@ public class MenssagemDTO {
 	private int status;
 
 	private String mensagem;
+	
+	private String caminho;
 
 	
 
