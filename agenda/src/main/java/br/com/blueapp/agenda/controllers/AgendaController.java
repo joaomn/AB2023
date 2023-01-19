@@ -117,7 +117,7 @@ public class AgendaController {
 
 	//@ApiOperation(value = "Atualizar cadastro")
 	@PutMapping("/{id}")
-	public ResponseEntity<AgendaEntityDTO> update(@PathVariable Long id, @RequestBody AgendaEntityDTO dto) {
+	public ResponseEntity<AgendaEntityDTO> update(@PathVariable Long id, @RequestBody AgendaEntityDTO dto)  {
 
 		Optional<AgendaEntity> objeto = this.servico.buscarPessoa(id);
 
@@ -138,6 +138,18 @@ public class AgendaController {
 				dto.setMenssagem("Telefone não Informado");
 				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(dto);
 			}
+			
+			
+			String regex = "^[a-zA-Z0-9_!#$%&amp;'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+
+			Pattern pattern = Pattern.compile(regex);
+
+			if (!pattern.asMatchPredicate().test(dto.getEmail())) {
+				dto.setMenssagem("Email Invalido");
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(dto);
+				}
+			
+			
 			servico.update(id, dto);
 			return ResponseEntity.status(HttpStatus.OK).body(objeto.get().toDto());
 		}

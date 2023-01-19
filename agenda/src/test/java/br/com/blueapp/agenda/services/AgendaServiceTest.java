@@ -82,6 +82,8 @@ public class AgendaServiceTest {
 	@Order(2)
 	@Test
 	public void salvarNovoTeste_falha() {
+
+		
 		
 		Exception exception = assertThrows(EmailCadastradoExcepcion.class, () -> {
 			this.agendaService.salvar(novoUsuario1);			
@@ -92,4 +94,23 @@ public class AgendaServiceTest {
 
 	}
 
+	@DisplayName("alterar pessoa existente com sucesso")
+	@Order(3)
+	@Test
+	public void updateContatoExistente() throws  EmailCadastradoExcepcion{
+		this.agendaService.salvar(novoUsuario1);
+		
+		novoUsuario1.setName("Joao");
+		
+		this.agendaService.update(novoUsuario1.getId(), novoUsuario1.toDto());
+		
+		Optional<AgendaEntity> contatoBanco = this.agendaService.buscarPessoa(novoUsuario1.getId());
+		
+		assertTrue(contatoBanco.isPresent());
+		
+		assertTrue(contatoBanco.get().getId().equals(novoUsuario1.getId()));
+		
+		
+	}
+	
 }

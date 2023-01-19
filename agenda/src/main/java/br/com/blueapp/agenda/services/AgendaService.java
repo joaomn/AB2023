@@ -54,7 +54,7 @@ public class AgendaService {
 
 	}
 
-	public  AgendaEntityDTO update  (Long id, AgendaEntityDTO agenda) {
+	public  AgendaEntityDTO update (Long id, AgendaEntityDTO agenda) {
 		
 		Optional<AgendaEntity> objAgenda = repository.findById(id);
 		if(objAgenda.isPresent()) {
