@@ -21,10 +21,10 @@ import br.com.blueapp.agenda.services.excepcion.PessoaNotExistsExcepcion;
 
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class AgendaServiceTest {
+public class AgendaServiceImplsTest {
 
 	@Autowired
-	private AgendaService agendaService;
+	private AgendaServiceImpls agendaService;
 
 	private static AgendaEntity novoUsuario1;
 	private static AgendaEntity novoUsuario2;

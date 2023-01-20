@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,17 +21,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.blueapp.agenda.entitys.AgendaEntity;
 import br.com.blueapp.agenda.entitys.dtos.AgendaEntityDTO;
-import br.com.blueapp.agenda.services.AgendaService;
+import br.com.blueapp.agenda.services.AgendaServiceImpls;
 import br.com.blueapp.agenda.services.excepcion.EmailCadastradoExcepcion;
 import br.com.blueapp.agenda.services.excepcion.PessoaNotExistsExcepcion;
 //import io.swagger.annotations.ApiOperation;
 
 @RestController
+@CrossOrigin("http://127.0.0.1:5173")
 @RequestMapping("/api/agenda")
 public class AgendaController {
 
 	@Autowired
-	private AgendaService servico;
+	private AgendaServiceImpls servico;
 
 	//@ApiOperation(value = "Persistir no banco de dados")
 	@PostMapping
