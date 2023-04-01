@@ -2,7 +2,7 @@
     <div class="inicio">
 
         <Button label="Inserir Contato" class="p-button-raised p-button-success" icon="pi pi-plus"
-            style=" width: 200px; height: 45px; font-size: 20px; font-weight: 700;" id="inseir" @click="openInsert" />
+            style=" width: 200px; height: 45px; font-size: 19px; font-weight: 700;" id="inseir" @click="openInsert" />
 
 
 
