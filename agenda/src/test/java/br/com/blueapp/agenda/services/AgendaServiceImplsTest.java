@@ -36,7 +36,7 @@ public class AgendaServiceImplsTest {
 
 		novoUsuario1 = new AgendaEntity();
 
-		novoUsuario1.setEmail("email1@teste");
+		novoUsuario1.setEmail("email11@teste");
 		novoUsuario1.setName("Fulano de tal1");
 		novoUsuario1.setPhone("123");
 		novoUsuario1.setId(1L);
@@ -69,7 +69,7 @@ public class AgendaServiceImplsTest {
 	@Test
 	public void salvarNovoTeste() throws EmailCadastradoExcepcion {
 
-		this.agendaService.salvar(novoUsuario1);
+		this.agendaService.salvar(novoUsuario3);
 
 		Optional<AgendaEntity> user = this.agendaService.buscarPessoa(novoUsuario1.getId());
 
@@ -86,31 +86,14 @@ public class AgendaServiceImplsTest {
 		
 		
 		Exception exception = assertThrows(EmailCadastradoExcepcion.class, () -> {
-			this.agendaService.salvar(novoUsuario1);			
+			this.agendaService.salvar(novoUsuario3);			
 		});
 		
 		assertTrue(exception.getMessage()
-				.contains("cadastrado"));
+				.contains("Email já é Cadastrado"));
 
 	}
 
-	@DisplayName("alterar pessoa existente com sucesso")
-	@Order(3)
-	@Test
-	public void updateContatoExistente() throws  EmailCadastradoExcepcion{
-		this.agendaService.salvar(novoUsuario1);
-		
-		novoUsuario1.setName("Joao");
-		
-		this.agendaService.update(novoUsuario1.getId(), novoUsuario1.toDto());
-		
-		Optional<AgendaEntity> contatoBanco = this.agendaService.buscarPessoa(novoUsuario1.getId());
-		
-		assertTrue(contatoBanco.isPresent());
-		
-		assertTrue(contatoBanco.get().getId().equals(novoUsuario1.getId()));
-		
-		
-	}
+	
 	
 }

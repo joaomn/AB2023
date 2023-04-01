@@ -25,16 +25,17 @@ import br.com.blueapp.agenda.services.AgendaServiceImpls;
 import br.com.blueapp.agenda.services.excepcion.EmailCadastradoExcepcion;
 import br.com.blueapp.agenda.services.excepcion.PessoaNotExistsExcepcion;
 //import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
-@CrossOrigin("http://127.0.0.1:5173")
+@CrossOrigin("*")
 @RequestMapping("/api/agenda")
 public class AgendaController {
 
 	@Autowired
 	private AgendaServiceImpls servico;
 
-	//@ApiOperation(value = "Persistir no banco de dados")
+	@ApiOperation(value = "Persistir no banco de dados")
 	@PostMapping
 	public ResponseEntity<AgendaEntityDTO> salvar(@RequestBody AgendaEntityDTO dto) {
 
@@ -84,7 +85,7 @@ public class AgendaController {
 
 	}
 
-	//@ApiOperation(value = "Retornar todos do banco de dados")
+	@ApiOperation(value = "Retornar todos do banco de dados")
 	@GetMapping
 	public ResponseEntity<List<AgendaEntityDTO>> index() {
 
@@ -99,7 +100,7 @@ public class AgendaController {
 		return ResponseEntity.status(HttpStatus.OK).body(agendaDTO);
 	}
 
-	//@ApiOperation(value = "Retornar por ID")
+	@ApiOperation(value = "Retornar por ID")
 	@GetMapping("/{id}")
 	public ResponseEntity<AgendaEntityDTO> show(@PathVariable Long id) {
 
@@ -117,7 +118,7 @@ public class AgendaController {
 
 	}
 
-	//@ApiOperation(value = "Atualizar cadastro")
+	@ApiOperation(value = "Atualizar cadastro")
 	@PutMapping("/{id}")
 	public ResponseEntity<AgendaEntityDTO> update(@PathVariable Long id, @RequestBody AgendaEntityDTO dto)  {
 
@@ -163,7 +164,7 @@ public class AgendaController {
 
 	}
 
-	//@ApiOperation(value = "Deletar Cadastro")
+	@ApiOperation(value = "Deletar Cadastro")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<AgendaEntityDTO> delete(@PathVariable Long id) {
 
@@ -173,7 +174,7 @@ public class AgendaController {
 
 		try {
 			this.servico.delete(objDTO.getId());
-			objDTO.setMenssagem("Colaborador excluido com sucesso!");
+			objDTO.setMenssagem("Contato excluido com sucesso!");
 			return ResponseEntity.status(HttpStatus.OK).body(objDTO);
 
 		} catch (PessoaNotExistsExcepcion e) {
