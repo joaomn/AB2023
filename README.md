@@ -3,7 +3,7 @@
 Sistema de CRUD com uma API padrão REST com Back-end feito em java utilizando Spring Boot e Front-end Utilizando VueJs
 
 
-Para a documentação da API basta Utilizar o swagger pelo link : http://localhost:8090/swagger-ui/index.html
+Para a documentação da API basta Utilizar o swagger pelo link : http://localhost:8080/swagger-ui/index.html
 
 
 Versão do Spring utilizada: 2.7.7
