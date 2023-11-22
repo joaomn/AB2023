@@ -202,7 +202,11 @@ export default {
     },
     methods: {
         async loadData() {
-            let result = await axios.get("http://localhost:8080/api/agenda");
+            let result = await axios.get("http://localhost:8080/api/agenda",{
+                auth:{ password: this.password,
+                     username: this.username}
+
+            });
             this.usuarios = result.data
             console.table(result.phone);
         },

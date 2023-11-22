@@ -2,7 +2,7 @@
     <div class="baner">
         
 
-        <h1>AGENDA TABAJARA</h1>
+        <h1>AGENDA </h1>
 
 
     </div>
@@ -14,16 +14,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 .baner {
-    background: rgba(25, 69, 192, 0.808);
+    background: rgba(117, 25, 192, 0.808);
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 6rem;
-    color: rgb(47, 136, 214);
+    color: rgb(224, 237, 248);
     margin-top: 0;
     border-bottom: 5px rgb(158, 167, 165) solid;
-    border-radius: 50px 10px 50px 10px;
+    border-radius: 390px 50px 300px 50px;
     box-shadow: -10px 20px 20px 4px rgba(23, 50, 56, 0.801);
 
 

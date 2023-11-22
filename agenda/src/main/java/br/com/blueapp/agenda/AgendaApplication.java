@@ -12,7 +12,7 @@ public class AgendaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AgendaApplication.class, args);
 		
-		System.out.println(new BCryptPasswordEncoder().encode("1235533'%"));
+		//System.out.println(new BCryptPasswordEncoder().encode("1235533'%"));
 	}
 	
 	

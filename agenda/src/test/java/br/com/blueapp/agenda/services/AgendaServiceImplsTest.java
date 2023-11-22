@@ -39,14 +39,14 @@ public class AgendaServiceImplsTest {
 		novoUsuario1.setEmail("email11@teste");
 		novoUsuario1.setName("Fulano de tal1");
 		novoUsuario1.setPhone("123");
-		novoUsuario1.setId(1L);
+		novoUsuario1.setId(15L);
 
 		novoUsuario2 = new AgendaEntity();
 
 		novoUsuario2.setEmail("email2@teste.com");
 		novoUsuario2.setName("Fulano de tal2");
 		novoUsuario2.setPhone("1234");
-		novoUsuario2.setId(2L);
+		novoUsuario2.setId(20L);
 
 		novoUsuario3 = new AgendaEntity();
 
@@ -69,7 +69,7 @@ public class AgendaServiceImplsTest {
 	@Test
 	public void salvarNovoTeste() throws EmailCadastradoExcepcion {
 
-		this.agendaService.salvar(novoUsuario3);
+		this.agendaService.salvar(novoUsuario2);
 
 		Optional<AgendaEntity> user = this.agendaService.buscarPessoa(novoUsuario1.getId());
 
