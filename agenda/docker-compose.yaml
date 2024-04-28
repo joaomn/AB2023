@@ -30,7 +30,7 @@ services:
     ports:
       - '5173:5173'
     environment:
-      - 'API_URL=http://spring-app:8080'  # Use o nome do serviço e a porta para acessar o spring-app
+      - 'VITE_API_URL=http://spring-app:8080'  # Use o nome do serviço e a porta para acessar o spring-app
     networks:
       - mynetwork
 
