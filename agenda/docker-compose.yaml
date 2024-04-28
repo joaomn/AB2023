@@ -20,7 +20,7 @@ services:
       - 'SPRING_DATASOURCE_USERNAME=myuser'
       - 'SPRING_DATASOURCE_PASSWORD=banco'
   front-app:
-    image: 'jhonyamn/agendafront:1.0'
+    image: 'jhonyamn/agendafront:2.0'
     ports:
     - '5173:5173'
     environment:
