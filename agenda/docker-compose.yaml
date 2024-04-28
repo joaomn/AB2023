@@ -26,7 +26,7 @@ services:
       - mynetwork
 
   front-app:
-    image: 'jhonyamn/agendafront:2.0'
+    image: 'jhonyamn/agendafront:2.1'
     ports:
       - '5173:5173'
     environment:
