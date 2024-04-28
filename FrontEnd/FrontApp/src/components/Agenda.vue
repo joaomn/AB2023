@@ -216,16 +216,13 @@ export default {
                 .then(result => {
                     this.$toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 3000 });
                     this.loadData()
+                    this.LoginOk = true;
                 })
                 .catch(error => {
                     alert("Dados incorretos ou já cadastrados, por favor, verique os campos e tente novamente.");
                 });
 
-            if (result.status == 200) {
-
-                this.loadData();
-                this.LoginOk = true;
-            }
+          
 
         },
         async addLogin() {
@@ -239,10 +236,7 @@ export default {
                     alert("Dados incorretos ou já cadastrados, por favor, verique os campos e tente novamente.");
                 });
 
-            if (result.status == 201) {
-                alert("Login e Senha Registrados Com Sucesso!")
-                this.LoginOk = true;
-            }
+           
 
         }
         ,
