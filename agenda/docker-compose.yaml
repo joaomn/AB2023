@@ -23,4 +23,6 @@ services:
     image: 'jhonyamn/agendafront:1.0'
     ports:
     - '5173:5173'
+    environment:
+      - 'API_URL=http://spring-app:8080'
     
