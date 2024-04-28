@@ -166,7 +166,7 @@
 
 <script>
 import { transform } from '@vue/compiler-core';
-import axios from 'axios';
+import axios from '../configs/request';
 export default {
     name: "Agenda",
     data() {
@@ -202,7 +202,7 @@ export default {
     },
     methods: {
         async loadData() {
-            let result = await axios.get("http://localhost:8080/api/agenda",{
+            let result = await axios.get("/api/agenda",{
                 auth:{ password: this.password,
                      username: this.username}
 
@@ -212,7 +212,7 @@ export default {
         },
         async addAgenda() {
 
-            const result = await axios.post("http://localhost:8080/api/agenda", this.contato)
+            const result = await axios.post("/api/agenda", this.contato)
                 .then(result => {
                     this.$toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 3000 });
                     this.loadData()
@@ -230,7 +230,7 @@ export default {
         },
         async addLogin() {
 
-            const result = await axios.post("http://localhost:8080/api/login", this.login)
+            const result = await axios.post("/api/login", this.login)
                 .then(result => {
                     alert("Login e Senha Registrados Com Sucesso!")
                     this.LoginOk = true;
@@ -293,7 +293,7 @@ export default {
         },
 
         async deleteAgenda(id) {
-            let result = await axios.delete('http://localhost:8080/api/agenda/' + id);
+            let result = await axios.delete('/api/agenda/' + id);
             console.warn(result);
             if (result.status == 200)
                 this.deleteDialog = false;
@@ -302,7 +302,7 @@ export default {
         },
         async updateAgenda(id) {
 
-            const result = await axios.put("http://localhost:8080/api/agenda/" + id, {
+            const result = await axios.put("/api/agenda/" + id, {
                 name: this.alguem.name,
                 email: this.alguem.email,
                 phone: this.alguem.phone,
